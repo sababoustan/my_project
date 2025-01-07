@@ -1,0 +1,35 @@
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.previous-post {
+    text-align: left;
+    flex: 1; /* Take up equal space */
+    margin-right: 10px;
+}
+
+.next-post {
+    text-align: right;
+    flex: 1; /* Take up equal space */
+    margin-left: 10px;
+}
+
+.previous-post a, .next-post a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.previous-post img, .next-post img {
+    margin-right: 10px;
+}
+

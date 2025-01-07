@@ -1,0 +1,42 @@
+
+<body>
+<h1>{{ post.title }}</h1>
+<p>p{{ post.content }}</p>
+<p>Published: {{ post.publish }}</p>
+<p>Views: {{ post.counted_views }}</p>
+
+{% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100px; height: 100px;">
+{% else %}
+        <p>No image available for this post.</p>
+{% endif %}
+<a href="{% url 'project3:post_detail' post.pk %}">Back to Posts</a>
+
+<div class="post-navigation">
+    {% if previous_post %}
+        <div class="previous-post">
+            <a href="{% url 'project3:post_detail' previous_post.pk %}">
+                <P>Pervious_post:</P>
+                <img src="{{ previous_post.image.url }}" alt="{{ previous_post.title }}" style="width: 50px; height: 50px;">
+                <span>{{ previous_post.title }}</span>
+            </a>
+        </div>
+    {% endif %}
+
+    {% if next_post %}
+        <div class="next-post">
+            <a href="{% url 'project3:post_detail' next_post.pk %}">
+                {% if next_post.image %}
+                    <p>Next_post:</p>
+                <img src="{{ next_post.image.url }}" alt="{{ next_post.title }}" style="width: 50px; height: 50px;">
+                    {% else %}
+                    <p>No image available</p>
+                    {% endif %}
+                    <span>{{ next_post.title }}</span>
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+
