@@ -1,3 +1,4 @@
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,8 @@
 {% for post in posts %}
     <div class="post-item">
          <h2><a href="{% url 'project3:post_detail' post.pk %}">{{ post.title }}</a></h2>
-        <p>{{ post.content|truncatechars:100 }}</p>
+        <p>{{ post.content|excerpt_words:20 }}</p>
+
         {% if post.image %}
             <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100px; height: 100px;">
         {% endif %}
